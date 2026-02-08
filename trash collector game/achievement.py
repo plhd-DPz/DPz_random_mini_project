@@ -81,7 +81,7 @@ class Achievement:
                    back_button.centery - button_text.get_height() // 2)
         screen.blit(button_text, text_pos)
 
-        # Vẽ nút xóa thành tựu
+        # Draw clear button
         clear_button = pygame.Rect(screen.get_width() // 2 - 100, screen.get_height() - 200, 200, 50)
         pygame.draw.rect(screen, (200, 0, 0), clear_button, border_radius=15)
         pygame.draw.rect(screen, (255, 255, 255), clear_button, 3, border_radius=15)
@@ -108,3 +108,4 @@ class Achievement:
                         self.clear_achievements()
                         self.show(screen)  # Refresh the screen
                         break
+
