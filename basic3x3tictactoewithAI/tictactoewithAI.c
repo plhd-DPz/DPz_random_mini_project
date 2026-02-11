@@ -10,7 +10,16 @@ char board[3][3];
 int gameStarted = 0;
 char currentColor[20] = "\033[0m";
 
-/* ANSI COLORS */
+/* the following COLOR use ANSI escape, and honestly idk what it is
+I copy this part from AI when asked for a portable alternative of SetConsoleTextAttribute()
+if you also don't know what it is, better use the part below(only work on window though)
+
+#include <windows.h>
+void setColor(int color)
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+}
+*/
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
 #define GREEN   "\033[32m"
@@ -306,18 +315,6 @@ void saveGame(){
     printf("Game saved.\n");
 }
 
-/* the following setColor function use ANSI escape, and honestly idk what it is
-I copy this part from AI when asked for a portable alternative of SetConsoleTextAttribute()
-
-if you also don't know what it is, better use this(only work on window though)
-
-#include <windows.h>
-
-void setColor(int color)
-{
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
-}
-*/
 void setColor(char *color){
     if(strcmp(color,"yellow")==0) strcpy(currentColor,YELLOW);
     else if(strcmp(color,"blue")==0) strcpy(currentColor,BLUE);
@@ -425,3 +422,4 @@ int main(){
 
     return 0;
 }
+
