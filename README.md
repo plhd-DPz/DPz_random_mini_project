@@ -4,4 +4,4 @@ this repo consist of some ideas that I thought could be interesting, or could al
 
 and also I haven't learned about packaging, so run it in main.py.
 
-I'll keep adding more things here. Just gonna take a little while, since now I'm focused on learing other languages first.
+I'll keep adding more things here regularly.
