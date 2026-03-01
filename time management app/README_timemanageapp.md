@@ -1,5 +1,7 @@
 this is basically an app that does almost the same as google calendar(but worse).
 
+currently just run directly main.py or compile it with PyInstaller, I haven't create a deployed version since it's not finished.
+
 status: unfinished, will revisit in the future.
 
 features to fix/add:
