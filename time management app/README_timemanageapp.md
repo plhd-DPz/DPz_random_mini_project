@@ -14,7 +14,7 @@ features to fix/add:
 
 - fix the bug where if user click the resize button while the floating button in in the edge of the screen, it might disappear due to negative position.
 
--fix the bug where changing the shape of the window does not change the coordination of the floating button.
+- fix the bug where changing the shape of the window does not change the coordination of the floating button.
 
 - improving UI so that the screen does not appear black for about 0,2s after any changing size option.
 
