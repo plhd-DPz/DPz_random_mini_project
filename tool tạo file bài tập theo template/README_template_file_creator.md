@@ -1,4 +1,4 @@
-(chắc là viết bằng tiếng Việt đi nhỉ, vì tool này dùng tiếng việt :v)
+(chắc là viết bằng tiếng Việt đi nhỉ, vì tool này dùng tiếng Việt :v)
 
 đây là small tool để tăng tốc việc tạo bài tập liên tục ở DPz-level1. 
 
