@@ -1,10 +1,3 @@
-"""
-Code Template Generator
-=======================
-Ứng dụng desktop tự động tạo file code từ template,
-phục vụ việc lưu bài tập lập trình.
-"""
-
 import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
 import os
@@ -182,7 +175,6 @@ def styled_button(parent, text, command, accent=True, width=18):
 # ═══════════════════════════════════════════════════════
 
 class EditTemplateWindow(tk.Toplevel):
-    """Cửa sổ con cho phép xem & chỉnh sửa template theo từng ngôn ngữ."""
 
     def __init__(self, parent, templates: dict):
         super().__init__(parent)
@@ -202,7 +194,6 @@ class EditTemplateWindow(tk.Toplevel):
         self._build_ui()
         self._load_language(self.lang_var.get())
 
-    # ── xây dựng giao diện ──────────────────────────────
     def _build_ui(self):
         pad = dict(padx=16, pady=8)
 
@@ -311,7 +302,6 @@ class EditTemplateWindow(tk.Toplevel):
             )
             return
 
-        # Cập nhật dict gốc (runtime)
         self.templates[lang]["format"] = new_format
         messagebox.showinfo(
             "Đã lưu",
@@ -382,9 +372,7 @@ class CodeTemplateApp(tk.Tk):
             selectforeground=THEME["btn_fg"],
         )
 
-    # ── xây dựng giao diện chính ────────────────────────
     def _build_ui(self):
-        # ── Header ──────────────────────────────────────
         header = tk.Frame(self, bg=THEME["accent"], height=52)
         header.pack(fill="x")
         header.pack_propagate(False)
@@ -405,7 +393,6 @@ class CodeTemplateApp(tk.Tk):
             font=("Segoe UI", 9),
         ).pack(side="left", padx=4)
 
-        # ── Scrollable main area ─────────────────────────
         canvas = tk.Canvas(self, bg=THEME["bg"], highlightthickness=0)
         v_scroll = ttk.Scrollbar(self, orient="vertical", command=canvas.yview)
         canvas.configure(yscrollcommand=v_scroll.set)
@@ -433,11 +420,9 @@ class CodeTemplateApp(tk.Tk):
 
         self._build_form(self.main_frame)
 
-    # ── form nhập liệu ──────────────────────────────────
     def _build_form(self, parent):
         p = dict(padx=20, pady=6)
 
-        # ── Section: Thông tin file ──────────────────────
         self._section_title(parent, "Thêng tin file")
 
         row1 = tk.Frame(parent, bg=THEME["bg"])
@@ -545,7 +530,6 @@ class CodeTemplateApp(tk.Tk):
             width=12,
         ).pack(side="right")
 
-        # ── Status bar ──────────────────────────────────
         self.status_var = tk.StringVar(value="Sẵn sàng.")
         status_bar = tk.Label(
             self,
@@ -559,7 +543,6 @@ class CodeTemplateApp(tk.Tk):
         )
         status_bar.pack(side="bottom", fill="x")
 
-    # ── tiêu đề section ─────────────────────────────────
     def _section_title(self, parent, text: str):
         tk.Label(
             parent,
@@ -653,20 +636,18 @@ class CodeTemplateApp(tk.Tk):
             return
 
         # ── Thông báo thành công ─────────────────────────
-        self._set_status(f"Da tao: {full_path}")
+        self._set_status(f"Đã tạo: {full_path}")
         messagebox.showinfo(
             "Tạo file thành công!",
             f"File đã tạo thành công:\n{full_path}",
         )
 
     def _open_edit_template(self):
-        """Mở cửa sổ chỉnh sửa template."""
         win = EditTemplateWindow(self, self.templates)
         win.grab_set()   # modal
         self.wait_window(win)
 
     def _clear_all(self):
-        """Xoá toàn bộ nội dung nhập liệu."""
         confirm = messagebox.askyesno("Xác nhận", "Xóa toàn bộ nội dung đã nhập?")
         if confirm:
             self.entry_filename.delete(0, "end")
