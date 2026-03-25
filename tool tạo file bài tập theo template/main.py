@@ -431,7 +431,7 @@ class CodeTemplateApp(tk.Tk):
 
         styled_label(col_lang, "Ngôn ngữ").pack(anchor="w", pady=(0, 3))
 
-        self.lang_var = tk.StringVar(value="C++")
+        self.lang_var = tk.StringVar(value="C")
 
         lang_row = tk.Frame(col_lang, bg=THEME["bg"])
         lang_row.pack(anchor="w")
@@ -632,7 +632,7 @@ class CodeTemplateApp(tk.Tk):
             self.entry_filename.delete(0, "end")
             self.text_problem.delete("1.0", "end")
             self.text_solution.delete("1.0", "end")
-            self.lang_var.set("C++")
+            self.lang_var.set("C")
             self._set_status("Đã xóa toàn bộ.")
 
     def _set_status(self, msg: str):
